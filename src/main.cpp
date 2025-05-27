@@ -4,10 +4,10 @@
 int main() {
 
     Env env;
-    if(env.load("../.env/.env")) {
+    if(env.load("./.env")) {
         env.exportToSystem();
 
-        std::cout << "FIRST ENV: " << env.get("IDK") << endl;
+        std::cout << "FIRST ENV: " << env.get("IDK") << std::endl;
     } else {
         std::cerr << "Failed to load .env file \n";
     }

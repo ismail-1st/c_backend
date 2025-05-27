@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: main
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: bash -c 'find src utils -name "*.cpp" -o -name  "*.h" | entr -r sh -c "make && ./main"' # run interactively
+    stdin_open: true # keep stdin open
+    tty: true # allocate a terminal
